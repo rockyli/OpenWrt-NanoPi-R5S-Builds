@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
 
-name: NanoPi Build
+name: NanoPi Build self hosted
 
 on:
 #  release:
@@ -42,7 +42,7 @@ on:
         default: false
 jobs:
   init:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     if: github.event.repository.owner.id == github.event.sender.id
 
     # Map a step output to a job output
