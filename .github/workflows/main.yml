@@ -1,24 +1,3 @@
-Skip to content
-anaelorlinski
-/
-OpenWrt-NanoPi-R5S-Builds
-
-Type / to search
-
-Code
-Issues
-1
-Pull requests
-Actions
-Projects
-Security
-Insights
-NanoPi Build
-NanoPi Build #17
-Jobs
-Run details
-Workflow file for this run
-.github/workflows/NanoPi-Build.yml at dee7dbb
 #=================================================
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
@@ -111,6 +90,7 @@ jobs:
         echo "NANOPI_MODEL=${{ matrix.nanopi_model }}" >> $GITHUB_ENV
         echo "BUILD_MINI=${{ github.event.inputs.build_mini }}" >> $GITHUB_ENV
         echo "BUILD_FULL=${{ github.event.inputs.build_full }}" >> $GITHUB_ENV
+
     - name: Show GITHUB_ENV
       run: echo $GITHUB_ENV
 
@@ -139,6 +119,7 @@ jobs:
         make download -j10
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
     - name: Make toolchain-aarch64
       id: compiletoolchain
       continue-on-error: true
@@ -230,4 +211,3 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         bodyFile: "openwrt-${{ env.OPENWRT_BRANCH }}/release-info.md"
         artifacts: ./artifact/*.img.gz
-Repository search results
